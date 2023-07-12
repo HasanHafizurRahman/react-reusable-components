@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Form from "./Form";
+import Form from "../reusable-components/Form";
 
 const OrderForm = ({ onAddOrder }) => {
   const [orderData, setOrderData] = useState([]);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import OrderForm from "../reusable-components/OrderForm";
+import OrderForm from "../main-components/OrderForm";
 import Table from "../reusable-components/Table";
 
 const Orders = () => {

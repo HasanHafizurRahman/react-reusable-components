@@ -3,8 +3,9 @@ import Button from "../reusable-components/Button";
 import { AiOutlineBell } from "react-icons/ai";
 import Card from "../reusable-components/Card";
 import Form from "../reusable-components/Form";
-import OrderForm from "../reusable-components/OrderForm";
+import OrderForm from "../main-components/OrderForm";
 import Orders from "./Orders";
+import Products from "../main-components/Porducts";
 
 export default function Home() {
   return (
@@ -15,8 +16,8 @@ export default function Home() {
           Show Alert
         </Button>
       </div>
-      {/* Card */}
-      <Card />
+      {/* Cards */}
+      <Products />
 
       {/* Form  */}
       <Orders />
