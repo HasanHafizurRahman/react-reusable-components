@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import OrderForm from "../components/OrderForm";
+import OrderForm from "../reusable-components/OrderForm";
+import Table from "../reusable-components/Table";
 
 const Orders = () => {
   const [orders, setOrders] = useState([
@@ -12,6 +13,48 @@ const Orders = () => {
     },
     {
       id: 2,
+      customerName: "Donal Trump",
+      product: "Weapon 0",
+      quantity: 1,
+      price: 15,
+    },
+    {
+      id: 3,
+      customerName: "Vladimir Putin",
+      product: "Weapon X",
+      quantity: 1,
+      price: 15,
+    },
+    {
+      id: 4,
+      customerName: "Bashar Al Asad",
+      product: "Weapon A",
+      quantity: 1,
+      price: 15,
+    },
+    {
+      id: 5,
+      customerName: "Abu Bakar",
+      product: "Product 0",
+      quantity: 1,
+      price: 15,
+    },
+    {
+      id: 6,
+      customerName: "Captain Smith",
+      product: "Product 12",
+      quantity: 1,
+      price: 15,
+    },
+    {
+      id: 7,
+      customerName: "Momith shah",
+      product: "Product C",
+      quantity: 1,
+      price: 15,
+    },
+    {
+      id: 8,
       customerName: "Jane Smith",
       product: "Product B",
       quantity: 1,
@@ -19,6 +62,13 @@ const Orders = () => {
     },
   ]);
 
+  const tableHeaders = ["Customer Name", "Product Name", "Quantity", "Price"];
+  const tableRows = orders.map((order, index) => [
+    order.customerName,
+    order.product,
+    order.quantity,
+    order.price,
+  ]);
   const handleAddOrder = (newOrder) => {
     setOrders((prevOrders) => [...prevOrders, newOrder]);
   };
@@ -28,26 +78,7 @@ const Orders = () => {
       <h2 className="text-2xl font-semibold">Order History</h2>
       <OrderForm onAddOrder={handleAddOrder} />
       {orders.length > 0 ? (
-        <table className="table-auto mt-4">
-          <thead>
-            <tr>
-              <th>Customer Name</th>
-              <th>Product</th>
-              <th>Quantity</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <tr key={order.id}>
-                <td>{order.customerName}</td>
-                <td>{order.product}</td>
-                <td>{order.quantity}</td>
-                <td>{order.price}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <Table headers={tableHeaders} rows={tableRows} />
       ) : (
         <p>No orders yet.</p>
       )}

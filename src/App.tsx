@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Orders from "./pages/Orders";
-import Navigation from "./components/Navigation";
+import Navigation from "./reusable-components/Navigation";
 
 function App() {
   return (

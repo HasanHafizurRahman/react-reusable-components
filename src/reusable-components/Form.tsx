@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
 const Form = ({ onSubmit }) => {
   const [customerName, setCustomerName] = useState("");
@@ -91,12 +92,9 @@ const Form = ({ onSubmit }) => {
               />
             </div>
           </div>
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white rounded px-4 py-2"
-          >
+          <Button type="submit" icon={undefined} style="btn-primary">
             Add Order
-          </button>
+          </Button>
         </form>
       </div>
     </section>
