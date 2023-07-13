@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import { toast } from "react-toastify";
 
 const Form = ({ onSubmit }) => {
   const [customerName, setCustomerName] = useState("");
@@ -20,6 +21,11 @@ const Form = ({ onSubmit }) => {
     setProduct("");
     setQuantity("");
     setPrice("");
+    submitToast();
+  };
+
+  const submitToast = () => {
+    toast.success("Success! New Product Added To The Table");
   };
 
   return (
@@ -92,7 +98,12 @@ const Form = ({ onSubmit }) => {
               />
             </div>
           </div>
-          <Button type="submit" icon={undefined} style="btn-primary">
+          <Button
+            onClick={handleSubmit}
+            type="submit"
+            icon={undefined}
+            style="btn-primary"
+          >
             Add Order
           </Button>
         </form>

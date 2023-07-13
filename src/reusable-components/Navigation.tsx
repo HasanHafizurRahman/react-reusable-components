@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { TfiShoppingCartFull } from "react-icons/tfi";
+import { CartContext } from "../main-components/CartContext";
 
 const Navigation = () => {
+  const { cartItems } = useContext(CartContext);
+  const cartItemCount = cartItems.reduce(
+    (count, item) => count + item.quantity,
+    0
+  );
   return (
     <div className="flex justify-around mt-5">
       <div className="flex gap-5">
@@ -18,8 +24,12 @@ const Navigation = () => {
       </div>
       <div className="text-primary font-semibold relative">
         <TfiShoppingCartFull className="h-6 w-6" />
-        <span className="text-sm absolute left-3 bottom-5 bg-secondary text-white px-1 rounded-full">
-          10
+        <span className="absolute left-3 bottom-5 bg-white text-white px-1 rounded-full">
+          {cartItemCount > 0 && (
+            <span className="bg-blue-500 text-white rounded-full px-2 py-1">
+              {cartItemCount}
+            </span>
+          )}
         </span>
       </div>
     </div>

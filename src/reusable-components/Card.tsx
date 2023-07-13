@@ -2,9 +2,20 @@ import React, { useContext, useState } from "react";
 import Button from "./Button";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { CartContext } from "../main-components/CartContext";
+import { toast } from "react-toastify";
 
-const Card = ({ product }) => {
-  // const { addToCart, removeFromCart, cartItems } = useContext(CartContext);
+interface ICardProps {
+  product: {
+    id: string;
+    image: string;
+    title: string;
+    description: string;
+    price: number;
+  };
+}
+
+const Card: React.FC<ICardProps> = ({ product }) => {
+  const { addToCart, removeFromCart, cartItems } = useContext(CartContext);
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const handleShowMore = () => {
@@ -17,13 +28,24 @@ const Card = ({ product }) => {
 
   const handleAddToCart = () => {
     addToCart(product);
+
+    addToCartToast();
   };
 
   const handleRemoveFromCart = () => {
     removeFromCart(product.id);
+
+    removeFromCartToast();
+  };
+  const addToCartToast = () => {
+    toast.success("Success! Product added to cart.");
   };
 
-  // const isInCart = cartItems.some((item) => item.id === product.id);
+  const removeFromCartToast = () => {
+    toast.success("Success! Product removed from cart.");
+  };
+
+  const isInCart = cartItems.some((item) => item.id === product.id);
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow py-2">
       <img className="rounded-t-lg w-full h-40" src={product.image} alt="" />
@@ -44,9 +66,10 @@ const Card = ({ product }) => {
       <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
         ${product.price}
       </p>
+
       <Button
         onClick={handleAddToCart}
-        // disabled={isInCart}
+        disabled={isInCart}
         icon={<AiOutlinePlusCircle />}
         style="btn-primary"
       >

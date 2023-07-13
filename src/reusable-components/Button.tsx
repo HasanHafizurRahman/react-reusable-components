@@ -1,10 +1,17 @@
-import React from "react";
+import React, { MouseEventHandler, ReactNode } from "react";
 
-const Button = ({ children, icon, style }) => {
+interface IButtonProps {
+  children: ReactNode;
+  icon?: ReactNode;
+  style: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+}
+
+const Button: React.FC<IButtonProps> = ({ children, icon, style, onClick }) => {
   const buttonStyles = `${style}`;
 
   return (
-    <button className={buttonStyles}>
+    <button className={buttonStyles} onClick={onClick}>
       {children}
       {icon && <span className="ml-2">{icon}</span>}
     </button>

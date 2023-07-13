@@ -74,7 +74,7 @@ const Orders = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-6">
       <h2 className="text-2xl font-semibold">Order History</h2>
       <OrderForm onAddOrder={handleAddOrder} />
       {orders.length > 0 ? (

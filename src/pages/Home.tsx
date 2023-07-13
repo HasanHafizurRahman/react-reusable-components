@@ -6,16 +6,12 @@ import Form from "../reusable-components/Form";
 import OrderForm from "../main-components/OrderForm";
 import Orders from "./Orders";
 import Products from "../main-components/Porducts";
+import Toast from "../reusable-components/Toast";
 
 export default function Home() {
   return (
     <div className="p-4">
-      {/* Button */}
-      <div className="flex">
-        <Button style="btn-primary" icon={<AiOutlineBell />}>
-          Show Alert
-        </Button>
-      </div>
+      <Toast message={undefined} />
       {/* Cards */}
       <Products />
 
