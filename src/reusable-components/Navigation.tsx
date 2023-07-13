@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { TfiShoppingCartFull } from "react-icons/tfi";
 import { CartContext } from "../main-components/CartContext";
 

@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import Button from "./Button";
 import { toast } from "react-toastify";
 
-const Form = ({ onSubmit }) => {
+interface IFormProps {
+  onSubmit: (newOrder: IOrder) => void;
+}
+
+interface IOrder {
+  customerName: string;
+  product: string;
+  quantity: number;
+  price: number;
+}
+
+const Form: React.FC<IFormProps> = ({ onSubmit }) => {
   const [customerName, setCustomerName] = useState("");
   const [product, setProduct] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const newOrder = {
       customerName,

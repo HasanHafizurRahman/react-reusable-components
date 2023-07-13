@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Form from "../reusable-components/Form";
 
-const OrderForm = ({ onAddOrder }) => {
+interface IOrderFormProps {
+  onAddOrder: (newOrder: OrderData) => void;
+}
+
+const OrderForm: React.FC<IOrderFormProps> = ({ onAddOrder }) => {
   const [orderData, setOrderData] = useState([]);
 
   const handleSubmit = (newOrder) => {

@@ -1,6 +1,11 @@
 import React from "react";
 
-const Table = ({ headers, rows }) => {
+interface ITableProps {
+  headers: string[];
+  rows: string[][];
+}
+
+const Table: React.FC<ITableProps> = ({ headers, rows }) => {
   return (
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead className="text-xs text-gray-700 uppercase bg-gray-50">
