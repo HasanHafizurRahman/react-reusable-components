@@ -5,11 +5,10 @@ interface IButtonProps {
   icon?: ReactNode;
   style: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  type: string;
 }
 
-const Button: IButtonProps = ({ children, icon, style, onClick }) => {
-  // const buttonStyles = `${style}`;
-
+const Button = ({ children, icon, style, onClick }: IButtonProps) => {
   return (
     <button className={style} onClick={onClick}>
       {children}

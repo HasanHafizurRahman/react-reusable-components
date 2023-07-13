@@ -25,7 +25,7 @@ const Products = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {products.slice(0, 6).map((product) => (
             <Card key={product.id} product={product} />
           ))}

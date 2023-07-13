@@ -69,7 +69,13 @@ const Orders = () => {
     order.quantity,
     order.price,
   ]);
-  const handleAddOrder = (newOrder) => {
+  const handleAddOrder = (newOrder: {
+    id: number;
+    customerName: string;
+    product: string;
+    quantity: number;
+    price: number;
+  }) => {
     setOrders((prevOrders) => [...prevOrders, newOrder]);
   };
 

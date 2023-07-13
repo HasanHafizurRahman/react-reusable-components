@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import React, { FormEvent, useState } from "react";
 import Button from "./Button";
 import { toast } from "react-toastify";
@@ -13,7 +14,7 @@ interface IOrder {
   price: number;
 }
 
-const Form: IFormProps = ({ onSubmit }) => {
+const Form = ({ onSubmit }: IFormProps) => {
   const [customerName, setCustomerName] = useState("");
   const [product, setProduct] = useState("");
   const [quantity, setQuantity] = useState("");

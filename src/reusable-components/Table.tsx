@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import React from "react";
 
-interface ITableProps {
+interface ITableProps<T> {
   headers: string[];
-  rows: string[][];
+  rows: T[];
 }
 
-const Table: React.FC<ITableProps> = ({ headers, rows }) => {
+const Table =<T,> ({ headers, rows }: ITableProps<T>) => {
   return (
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead className="text-xs text-gray-700 uppercase bg-gray-50">
@@ -20,11 +21,27 @@ const Table: React.FC<ITableProps> = ({ headers, rows }) => {
       <tbody>
         {rows.map((row, index) => (
           <tr key={index}>
-            {row.map((cell, cellIndex) => (
-              <td className="p-4" key={cellIndex}>
-                {cell}
-              </td>
-            ))}
+            {row.map(
+              (
+                cell:
+                  | string
+                  | number
+                  | boolean
+                  | React.ReactElement<
+                      any,
+                      string | React.JSXElementConstructor<any>
+                    >
+                  | Iterable<React.ReactNode>
+                  | React.ReactPortal
+                  | null
+                  | undefined,
+                cellIndex: React.Key | null | undefined
+              ) => (
+                <td className="p-4" key={cellIndex}>
+                  {cell}
+                </td>
+              )
+            )}
           </tr>
         ))}
       </tbody>

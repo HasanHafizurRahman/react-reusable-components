@@ -14,7 +14,7 @@ interface ICardProps {
   };
 }
 
-const Card: React.FC<ICardProps> = ({ product }) => {
+const Card = ({ product }: ICardProps) => {
   const { addToCart, removeFromCart, cartItems } = useContext(CartContext);
   const [showFullDescription, setShowFullDescription] = useState(false);
 
@@ -27,6 +27,7 @@ const Card: React.FC<ICardProps> = ({ product }) => {
     : product.description.split(" ").slice(0, 10).join(" ");
 
   const handleAddToCart = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     addToCart(product);
 
     addToCartToast();
@@ -45,7 +46,7 @@ const Card: React.FC<ICardProps> = ({ product }) => {
     toast.success("Success! Product removed from cart.");
   };
 
-  const isInCart = cartItems.some((item) => item.id === product.id);
+  const isInCart = cartItems.some((item: { id: string; }) => item.id === product.id);
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow py-2">
       <img
