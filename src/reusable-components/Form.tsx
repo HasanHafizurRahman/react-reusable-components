@@ -13,7 +13,7 @@ interface IOrder {
   price: number;
 }
 
-const Form: React.FC<IFormProps> = ({ onSubmit }) => {
+const Form: IFormProps = ({ onSubmit }) => {
   const [customerName, setCustomerName] = useState("");
   const [product, setProduct] = useState("");
   const [quantity, setQuantity] = useState("");

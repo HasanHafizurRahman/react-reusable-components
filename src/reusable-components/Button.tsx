@@ -7,11 +7,11 @@ interface IButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button: React.FC<IButtonProps> = ({ children, icon, style, onClick }) => {
-  const buttonStyles = `${style}`;
+const Button: IButtonProps = ({ children, icon, style, onClick }) => {
+  // const buttonStyles = `${style}`;
 
   return (
-    <button className={buttonStyles} onClick={onClick}>
+    <button className={style} onClick={onClick}>
       {children}
       {icon && <span className="ml-2">{icon}</span>}
     </button>

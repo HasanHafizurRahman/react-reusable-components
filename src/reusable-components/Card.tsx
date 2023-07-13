@@ -48,7 +48,11 @@ const Card: React.FC<ICardProps> = ({ product }) => {
   const isInCart = cartItems.some((item) => item.id === product.id);
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow py-2">
-      <img className="rounded-t-lg w-full h-40" src={product.image} alt="" />
+      <img
+        className="rounded-t-lg mx-auto w-60 h-40"
+        src={product.image}
+        alt=""
+      />
       <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
         {product.title}
       </h3>
