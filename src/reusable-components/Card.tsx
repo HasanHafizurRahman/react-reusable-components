@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import React, { useContext, useState } from "react";
 import Button from "./Button";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
@@ -27,7 +30,6 @@ const Card = ({ product }: ICardProps) => {
     : product.description.split(" ").slice(0, 10).join(" ");
 
   const handleAddToCart = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     addToCart(product);
 
     addToCartToast();
@@ -46,7 +48,9 @@ const Card = ({ product }: ICardProps) => {
     toast.success("Success! Product removed from cart.");
   };
 
-  const isInCart = cartItems.some((item: { id: string; }) => item.id === product.id);
+  const isInCart = cartItems.some(
+    (item: { id: string }) => item.id === product.id
+  );
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow py-2">
       <img
@@ -77,6 +81,7 @@ const Card = ({ product }: ICardProps) => {
         disabled={isInCart}
         icon={<AiOutlinePlusCircle />}
         style="btn-primary"
+        type="button"
       >
         Add
       </Button>
@@ -84,6 +89,7 @@ const Card = ({ product }: ICardProps) => {
         onClick={handleRemoveFromCart}
         icon={<AiOutlineMinusCircle />}
         style="btn-secondary"
+        type={"button"}
       >
         Remove
       </Button>

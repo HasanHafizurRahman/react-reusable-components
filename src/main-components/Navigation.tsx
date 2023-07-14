@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { TfiShoppingCartFull } from "react-icons/tfi";
 import { CartContext } from "./CartContext";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const { cartItems } = useContext(CartContext);
@@ -11,15 +12,18 @@ const Navigation = () => {
   return (
     <div className="flex justify-around bg-slate-200 py-6">
       <div className="flex gap-5">
-        <a href="/" className="font-semibold text-primary hover:text-secondary">
+        <Link
+          to="/"
+          className="font-semibold text-primary hover:text-secondary"
+        >
           Home
-        </a>
-        <a
-          href="/orders"
+        </Link>
+        <Link
+          to="/orders"
           className="font-semibold text-primary hover:text-secondary"
         >
           Orders
-        </a>
+        </Link>
       </div>
       <div className="text-primary font-semibold relative">
         <TfiShoppingCartFull className="h-6 w-6" />

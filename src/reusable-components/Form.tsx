@@ -110,12 +110,7 @@ const Form = ({ onSubmit }: IFormProps) => {
               />
             </div>
           </div>
-          <Button
-            onClick={handleSubmit}
-            type="submit"
-            icon={undefined}
-            style="btn-primary"
-          >
+          <Button onClick={handleSubmit} type="submit" style="btn-primary">
             Add Order
           </Button>
         </form>

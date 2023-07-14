@@ -10,12 +10,11 @@ function App() {
       <h1 className="text-3xl text-primary font-semibold">
         This is the Home Page of the bunch of re-usable components!
       </h1>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/orders" element={<Orders />} />
-        </Routes>
-      </BrowserRouter>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/orders" element={<Orders />} />
+      </Routes>
     </div>
   );
 }
